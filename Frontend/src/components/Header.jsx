@@ -12,6 +12,7 @@ const Header = ({ profile }) => {
   const [social, setSocial] = useState({ leetcode: '', github: '', linkedin: '' });
 
   useEffect(() => {
+    
     const fetchLinks = async () => {
       try {
         const res = await getAllLinks();
