@@ -57,7 +57,7 @@ const Header = ({ profile }) => {
   }, []);
 
   return (
-    <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-gray-950/60 bg-gray-950/80 border-b border-white/5">
+    <header className="z-40 backdrop-blur supports-[backdrop-filter]:bg-gray-950/60 bg-gray-950/80 border-b border-white/5">
       <div className="max-w-7xl mx-auto px-6">
         <nav className="h-16 flex items-center justify-between">
           <a href="#" className="flex items-center gap-3 group">
