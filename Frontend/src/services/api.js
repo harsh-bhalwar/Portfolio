@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create an Axios instance with a base URL from environment variables
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL/api/v1
+  baseURL: import.meta.env.VITE_API_BASE_URL
 });
 
 // Fetches the main profile data
