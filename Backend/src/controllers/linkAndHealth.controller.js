@@ -40,22 +40,26 @@ const getLinkByTitle = async (req, res, next) => {
 };
 
 const addLink = async (req, res) => {
-    const { linkData } = req.body;
+    const { title, link } = req.body;
     const portfolioId = req.params.userId;
-    if (!linkData || !portfolioId) {
+    if (!(title && link) || !portfolioId) {
         return res
             .status(400)
             .json(new ApiError(400, "Link data and portfolio ID are required"));
     }
-    const links = await Portfolio.findById(portfolioId).select("links");
-    if (!links) {
-        return res.status(404).json(new ApiError(404, "Link not found"));
+    const portfolio = await Portfolio.findById(portfolioId).select("links");
+    if (!portfolio) {
+        return res.status(404).json(new ApiError(404, "Portfolio not found"));
     }
-    links.push(linkData);
-    await links.save();
+    const newLink = {
+        title : title,
+        link : link
+    }
+    portfolio.links.push(newLink);
+    await portfolio.save();
     return res
         .status(200)
-        .json(new ApiResponse(200, "Link added successfully", links));
+        .json(new ApiResponse(200, "Link added successfully", portfolio));
 };
 
 const updateLink = async (req, res, next) => {

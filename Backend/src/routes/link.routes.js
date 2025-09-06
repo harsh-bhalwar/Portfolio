@@ -9,7 +9,7 @@ router.route("/getLinkByTitle/:title").get(getLinkByTitle);
 router.route("/health").get(getHealth);
 
 // Protected routes
-router.route("/addLink").post(basicAuth, addLink);
+router.route("/addLink/:userId").post(basicAuth, addLink);
 router.route("/updateLink").put(basicAuth, updateLink);
 
 export default router;

@@ -9,7 +9,7 @@ const Header = ({ profile }) => {
     { href: '#projects', label: 'Projects' },
   ];
 
-  const [social, setSocial] = useState({ leetcode: '', github: '', linkedin: '' });
+  const [social, setSocial] = useState({ leetcode: '', github: '', linkedin: '', resume: '' });
 
   useEffect(() => {
     
@@ -43,12 +43,14 @@ const Header = ({ profile }) => {
           leetcode: findByTitle('leetcode'),
           github: profile.github || findByTitle('github'),
           linkedin: profile.linkedin || findByTitle('linkedin'),
+          resume : profile.resume || findByTitle('resume')
         });
       } catch (_) {
         setSocial({
           leetcode: '',
           github: profile.github || '',
           linkedin: profile.linkedin || '',
+          resume: profile.resume || '',
         });
       }
     };
